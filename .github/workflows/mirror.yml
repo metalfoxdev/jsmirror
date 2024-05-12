@@ -1,0 +1,26 @@
+name: Sync with Codeberg
+
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs every hour, adjust as needed
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Pull changes from Codeberg
+        run: |
+          git remote add codeberg https://codeberg.org/metalfoxdev/juststudy-site.git
+          git fetch codeberg
+          git merge codeberg/main --allow-unrelated-histories -m "Merge from Codeberg"
+
+      - name: Push changes to GitHub
+        uses: ad-m/github-push-action@master
+        with:
+          branch: main  # Adjust the branch name as needed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the default GitHub token
