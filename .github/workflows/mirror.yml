@@ -1,0 +1,21 @@
+name: Sync Codeberg to GitHub
+
+on:
+  push:
+    branches:
+      - main # Change this to your main branch name
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Codeberg Code
+        uses: actions/checkout@v2
+        with:
+          repository: https://codeberg.org/metalfoxdev/juststudy-site.git
+
+      - name: Push to GitHub
+        run: |
+          git remote add github https://github.com/metalfoxdev/jsmirror.git
+          git push github main # Change 'main' to your main branch name on GitHub
