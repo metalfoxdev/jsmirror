@@ -15,6 +15,8 @@ jobs:
 
       - name: Pull changes from Codeberg
         run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "your.email@example.com"
           git remote add codeberg https://codeberg.org/metalfoxdev/juststudy-site.git
           git fetch codeberg
           git merge codeberg/main --allow-unrelated-histories -m "Merge from Codeberg"
