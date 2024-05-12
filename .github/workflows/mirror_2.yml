@@ -29,4 +29,4 @@ jobs:
         with:
           branch: main  # Adjust the branch name as needed
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the default GitHub token
+          GITHUB_TOKEN: ${{ secrets.KEY }}  # Use the default GitHub token
