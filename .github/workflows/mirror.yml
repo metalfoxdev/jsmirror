@@ -13,9 +13,9 @@ jobs:
       - name: Checkout Codeberg Code
         uses: actions/checkout@v2
         with:
-          repository: https://codeberg.org/metalfoxdev/juststudy-site.git
+          repository: https://codeberg.org/metalfoxdev/juststudy-site
 
       - name: Push to GitHub
         run: |
-          git remote add github https://github.com/metalfoxdev/jsmirror.git
+          git remote add github https://github.com/metalfoxdev/jsmirror
           git push github main # Change 'main' to your main branch name on GitHub
